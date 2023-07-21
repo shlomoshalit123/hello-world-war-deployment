@@ -1,6 +1,7 @@
 FROM maven as build 
-WORKDIR /app
+WORKDIR ${WORKSPACE}/app/
 COPY . .
+RUN ls -R
 RUN mvn clean package
 
 
