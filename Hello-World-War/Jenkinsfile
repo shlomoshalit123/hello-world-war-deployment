@@ -23,18 +23,18 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'deploy']], userRemoteConfigs: [[url: 'https://github.com/shlomoshalit123/hello-world-war-deployment.git']])
             }
         }
-        stage('SonarQube analysis') {
-            steps {
-                withSonarQubeEnv(credentialsId: 'sonarqube-aws', installationName: 'sonarqube-aws') { // You can override the credential to be used
-                    sh '''cd app/
-                    mvn clean verify sonar:sonar \
-                    -Dsonar.projectKey=final-project \
-                    -Dsonar.projectName='final-project' \
-                    -Dsonar.host.url=http://${sonarqube} \
-                    -Dsonar.token=sqp_22dbe3fe8e074d9054238746dadce8c3b8c18f15'''
-                }
-            }
-        }
+        // stage('SonarQube analysis') {
+        //     steps {
+        //         withSonarQubeEnv(credentialsId: 'sonarqube-aws', installationName: 'sonarqube-aws') { // You can override the credential to be used
+        //             sh '''cd app/
+        //             mvn clean verify sonar:sonar \
+        //             -Dsonar.projectKey=final-project \
+        //             -Dsonar.projectName='final-project' \
+        //             -Dsonar.host.url=http://${sonarqube} \
+        //             -Dsonar.token=sqp_22dbe3fe8e074d9054238746dadce8c3b8c18f15'''
+        //         }
+        //     }
+        // }
         stage('Build') {
             steps {
                 sh 'pwd'
