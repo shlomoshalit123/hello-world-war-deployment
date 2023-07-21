@@ -1,6 +1,6 @@
 FROM maven as build 
-WORKDIR /app/app
-COPY . .
+WORKDIR /app
+COPY ..\..\app .
 RUN hostname
 RUN pwd
 RUN ls -R
