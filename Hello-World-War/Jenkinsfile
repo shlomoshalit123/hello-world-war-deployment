@@ -20,6 +20,7 @@ pipeline {
             steps {
                 // cleanWs()
                 checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/shlomoshalit123/hello-world-war.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/shlomoshalit123/hello-world-war-deployment.git']])
             }
         }
         stage('SonarQube analysis') {
