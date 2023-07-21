@@ -1,6 +1,7 @@
 FROM maven as build 
-WORKDIR /app/
+WORKDIR /app/app
 COPY . .
+RUN hostname
 RUN pwd
 RUN ls -R
 RUN mvn clean package
