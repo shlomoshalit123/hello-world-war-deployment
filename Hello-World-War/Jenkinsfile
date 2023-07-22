@@ -19,7 +19,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 cleanWs()
-                checkout scmGit(branches: [[name: '*/dev']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'app']], userRemoteConfigs: [[url: 'https://github.com/shlomoshalit123/hello-world-war.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'app']], userRemoteConfigs: [[url: 'https://github.com/shlomoshalit123/hello-world-war.git']])
                 checkout scmGit(branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'deploy']], userRemoteConfigs: [[url: 'https://github.com/shlomoshalit123/hello-world-war-deployment.git']])
             }
         }
